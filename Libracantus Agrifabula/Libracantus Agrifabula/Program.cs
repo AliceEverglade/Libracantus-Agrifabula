@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Spectre.Console;
 
@@ -18,6 +19,8 @@ namespace Libracantus_Agrifabula
         private const int RESTORE = 9;
         #endregion
 
+        private GameGrid FrameBufferGrid;
+        private List<GameGrid> LayerList = new List<GameGrid>();
         static void Main(string[] args)
         {
             #region Full Screen Code
@@ -36,7 +39,16 @@ namespace Libracantus_Agrifabula
             }
             AnsiConsole.MarkupLine(Color.Black + Color.DarkGray + Color.Gray + Color.LightGray + Color.White);
         }
-
+        
+        private void Setup()
+        {
+            FrameBufferGrid = new GameGrid();
+            for (int i = 0; i < constants.LayerCount; i++)
+            {
+                GameGrid frame = new GameGrid();
+                LayerList.Add(frame);
+            }
+        }
 
         private void GridUpdate()
         {
@@ -46,6 +58,11 @@ namespace Libracantus_Agrifabula
                     //col for loop
                         //put layer grid index into frame grid
             }
+        }
+
+        private void PrintFrame()
+        {
+
         }
     }
 }

@@ -6,6 +6,7 @@ namespace Libracantus_Agrifabula
 {
     class Color
     {
+        public const string Empty = "  ";
         public const string LightBlue = "[aqua]██[/]";
         public const string Blue = "[blue]██[/]";
         public const string DarkBlue = "[navy]██[/]";

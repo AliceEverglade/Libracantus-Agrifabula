@@ -11,7 +11,7 @@ namespace Libracantus_Agrifabula
         private int SetGameGridWidth()
         {
             int width = Console.WindowWidth;
-            while(width % constants.gridSize != 0)
+            while((width / 2) % constants.gridSize != 0)
             {
                 width--;
             }
