@@ -7,7 +7,7 @@ namespace Libracantus_Agrifabula
     abstract class Plant
     {
         private string name;
-        private int renderLayer = 1;
+        private int renderLayer = 2;
         private float growthStageCounter;
         private float growthStageThreshold2;
         private float growthStageThreshold3;
@@ -30,6 +30,11 @@ namespace Libracantus_Agrifabula
                 default:
                     return 0;
             }
+        }
+
+        public int GetRenderLayer()
+        {
+            return renderLayer;
         }
 
         public abstract string[,] GetTexture(int TextureIndex);
