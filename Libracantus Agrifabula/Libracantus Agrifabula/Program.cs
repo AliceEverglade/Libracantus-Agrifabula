@@ -27,22 +27,16 @@ namespace Libracantus_Agrifabula
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             ShowWindow(ThisConsole, MAXIMIZE);
             #endregion
-            /*
-            for (int i = 0; i < constants.gridSize; i++)
-            {
-                string line = "";
-                for (int j = 0; j < constants.gridSize; j++)
-                {
-                    line += constants.missingTexture[j, i];
-                }
-                AnsiConsole.MarkupLine(line);
-            }
-            AnsiConsole.MarkupLine(Color.Black + Color.DarkGray + Color.Gray + Color.LightGray + Color.White);
-            */
-            Setup();
-            //TEST CODE
             
-            LayerList[1].TESTRender();
+            Setup();
+            LayerList[0].SetLayerName("Background");
+            LayerList[1].SetLayerName("Plants");
+            LayerList[2].SetLayerName("GUI");
+
+            //TEST CODE
+            LayerList[0].SetBackground();
+            LayerList[1].SetCell(3, 4, Textures.redTulipTexture);
+            LayerList[2].SetUI(3, 4);
             GridUpdate();
             PrintFrame();
             //end of test code

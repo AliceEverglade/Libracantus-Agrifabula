@@ -17,46 +17,13 @@ namespace Libracantus_Agrifabula
             switch (TextureIndex)
             {
                 case 1:
-                    return new string[constants.gridSize, constants.gridSize]
-                    {
-                        //texture 1
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""}
-                    };
+                    return Textures.seedlingTexture;
                 case 2:
-                    return new string[constants.gridSize, constants.gridSize]
-                    {
-                        //texture 2
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""}
-                    };
+                    return Textures.plantTexture;
                 case 3:
-                    return new string[constants.gridSize, constants.gridSize]
-                    {
-                        //texture 3
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""},
-                        {"","","","","","","",""}
-                    };
+                    return Textures.carrotTexture;
                 default:
-                    return constants.missingTexture;
+                    return Textures.missingTexture;
 
             }
         }

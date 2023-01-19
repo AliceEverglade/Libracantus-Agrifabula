@@ -15,7 +15,8 @@ namespace Libracantus_Agrifabula
         public const string Red         = "[red]██[/]";
         public const string DarkRed     = "[maroon]██[/]";
         public const string Orange      = "[orange3]██[/]";
-        public const string Brown       = "[darkorange3]██[/]";
+        public const string Brown       = "[orange3]██[/]";
+        public const string DarkBrown   = "[darkorange3]██[/]";
         public const string Yellow      = "[yellow]██[/]";
         public const string Purple      = "[purple_2]██[/]";
         public const string Pink        = "[hotpink_1]██[/]";
