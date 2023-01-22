@@ -15,26 +15,26 @@ namespace Libracantus_Agrifabula
         private int CellsY;
         private int SetGameGridWidth()
         {
-            int width = Console.WindowWidth - constants.MarginRight;
+            int width = Console.WindowWidth - Constants.MarginRight;
             
-            while((Convert.ToSingle(width) / 2) % constants.gridSize != 0)
+            while((Convert.ToSingle(width) / 2) % Constants.gridSize != 0)
             {
                 width--;
             }
             GridWidth = width / 2;
-            CellsX = GridWidth / constants.gridSize;
+            CellsX = GridWidth / Constants.gridSize;
             return width / 2;
             
         }
         private int SetGameGridHeight()
         {
             int height = Console.WindowHeight;
-            while (height % constants.gridSize != 0)
+            while (height % Constants.gridSize != 0)
             {
                 height--;
             }
             GridHeight = height;
-            CellsY = GridHeight / constants.gridSize;
+            CellsY = GridHeight / Constants.gridSize;
             return height;
 
         }
@@ -56,15 +56,19 @@ namespace Libracantus_Agrifabula
 
         public void PlaceTexture(int x, int y, string[,] texture)
         {
-            for (int i = 0; i < constants.gridSize; i++)
+            for (int i = 0; i < Constants.gridSize; i++)
             {
-                for (int j = 0; j < constants.gridSize; j++)
+                for (int j = 0; j < Constants.gridSize; j++)
                 {
                     GameWindow[x + i, y + j] = texture[x, y];
                 }
             }
         }
 
+        public void ClearGrid()
+        {
+            Array.Clear(GameWindow,0,GameWindow.Length);
+        }
         public string[,] GetGameWindow()
         {
             return GameWindow;
@@ -82,11 +86,11 @@ namespace Libracantus_Agrifabula
 
         public void SetCell(int x, int y, string[,] texture)
         {
-            for (int i = 0; i < constants.gridSize; i++)
+            for (int i = 0; i < Constants.gridSize; i++)
             {
-                for (int j = 0; j < constants.gridSize; j++)
+                for (int j = 0; j < Constants.gridSize; j++)
                 {
-                    GameWindow[y * constants.gridSize + i, x * constants.gridSize + j] = texture[j, i];
+                    GameWindow[y * Constants.gridSize + i, x * Constants.gridSize + j] = texture[j, i];
                 }
             }
         }
@@ -99,14 +103,14 @@ namespace Libracantus_Agrifabula
                 {
                     for (int j = 0; j < CellsX; j++)
                     {
-                            if (i == 0 || j == 0 || i == CellsY - 1 || j == CellsX - 1)
-                            {
-                                SetCell(i, j, Textures.grassTexture);
-                            }
-                            else
-                            {
-                                SetCell(i, j, Textures.soilTexture);
-                            }
+                        if (i == 0 || j == 0 || i == CellsY - 1 || j == CellsX - 1)
+                        {
+                            SetCell(i, j, Textures.grassTexture);
+                        }
+                        else
+                        {
+                            SetCell(i, j, Textures.soilTexture);
+                        }
                     }
                 }
             }

@@ -72,24 +72,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gebruiker\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Joey\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Sint Lucas Projects\\term 6\\Libracantus-Agrifabula\\Libracantus Agrifabula\\Libracantus Agrifabula\\Libracantus Agrifabula.csproj",
+      "projectUniqueName": "C:\\Users\\Joey\\Documents\\sint lucas\\year 2\\software\\programming\\Libracantus-Agrifabula\\Libracantus Agrifabula\\Libracantus Agrifabula\\Libracantus Agrifabula.csproj",
       "projectName": "Libracantus Agrifabula",
-      "projectPath": "D:\\Sint Lucas Projects\\term 6\\Libracantus-Agrifabula\\Libracantus Agrifabula\\Libracantus Agrifabula\\Libracantus Agrifabula.csproj",
-      "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-      "outputPath": "D:\\Sint Lucas Projects\\term 6\\Libracantus-Agrifabula\\Libracantus Agrifabula\\Libracantus Agrifabula\\obj\\",
+      "projectPath": "C:\\Users\\Joey\\Documents\\sint lucas\\year 2\\software\\programming\\Libracantus-Agrifabula\\Libracantus Agrifabula\\Libracantus Agrifabula\\Libracantus Agrifabula.csproj",
+      "packagesPath": "C:\\Users\\Joey\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Joey\\Documents\\sint lucas\\year 2\\software\\programming\\Libracantus-Agrifabula\\Libracantus Agrifabula\\Libracantus Agrifabula\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Joey\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -135,7 +130,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -21,13 +21,15 @@ namespace Libracantus_Agrifabula
 
         private static GameGrid FrameBufferGrid;
         private static List<GameGrid> LayerList = new List<GameGrid>();
+
+        
         static void Main(string[] args)
         {
             #region Full Screen Code
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             ShowWindow(ThisConsole, MAXIMIZE);
             #endregion
-            
+            bool isPlaying;
             Setup();
             LayerList[0].SetLayerName("Background");
             LayerList[1].SetLayerName("Plants");
@@ -36,65 +38,86 @@ namespace Libracantus_Agrifabula
             //TEST CODE
             LayerList[0].SetBackground();
             LayerList[1].SetCell(3, 4, Textures.redTulipTexture);
+            LayerList[1].ClearGrid();
             LayerList[2].SetUI(3, 4);
             GridUpdate();
             PrintFrame();
             //end of test code
-        }
 
-        private static void Setup()
-        {
-            // create frame buffer and layers 
-            FrameBufferGrid = new GameGrid();
-            FrameBufferGrid.SetGameWindow();
-            for (int i = 0; i < constants.LayerCount; i++)
-            {
-                GameGrid frame = new GameGrid();
-                frame.SetGameWindow();
-                LayerList.Add(frame);
-            }
-        }
 
-        private static void GridUpdate()
-        {
-            for (int i = 0; i < constants.LayerCount; i++)
+            void GameLoop()
             {
-                //for loop for row
-                for (int j = 0; j < LayerList[i].GetGridHeight(); j++)
+                Setup();
+                while (isPlaying)
                 {
-                    //for loop for cell
-                    for (int k = 0; k < LayerList[i].GetGridWidth(); k++)
+
+                }
+            }
+
+            void Setup()
+            {
+                isPlaying = true;
+                // create frame buffer and layers 
+                FrameBufferGrid = new GameGrid();
+                FrameBufferGrid.SetGameWindow();
+                for (int i = 0; i < Constants.LayerCount; i++)
+                {
+                    GameGrid frame = new GameGrid();
+                    frame.SetGameWindow();
+                    LayerList.Add(frame);
+                }
+            }
+
+            void ClearGrid()
+            {
+                FrameBufferGrid.ClearGrid();
+                for (int i = 0; i < Constants.LayerCount; i++)
+                {
+                    LayerList[i].ClearGrid();
+                }
+            }
+
+            void GridUpdate()
+            {
+                for (int i = 0; i < Constants.LayerCount; i++)
+                {
+                    //for loop for row
+                    for (int j = 0; j < LayerList[i].GetGridHeight(); j++)
                     {
-                        //check if empty
-                        if (    LayerList[i].GetGameWindow()[k, j] != "  " 
-                            &&  LayerList[i].GetGameWindow()[k, j] != null 
-                            &&  LayerList[i].GetGameWindow()[k, j] != "")
+                        //for loop for cell
+                        for (int k = 0; k < LayerList[i].GetGridWidth(); k++)
                         {
-                            //put layer grid index into frame grid
-                            FrameBufferGrid.GetGameWindow()[k, j] = LayerList[i].GetGameWindow()[k, j];
+                            //check if empty
+                            if (LayerList[i].GetGameWindow()[k, j] != "  "
+                                && LayerList[i].GetGameWindow()[k, j] != null
+                                && LayerList[i].GetGameWindow()[k, j] != "")
+                            {
+                                //put layer grid index into frame grid
+                                FrameBufferGrid.GetGameWindow()[k, j] = LayerList[i].GetGameWindow()[k, j];
+                            }
                         }
                     }
                 }
             }
-        }
 
-        private static void PrintFrame()
-        {
-            //clear screen
-
-            //for loop for col
-            for (int i = 0; i < FrameBufferGrid.GetGridHeight(); i++)
+            void PrintFrame()
             {
-                //reset the line string
-                string renderline = "";
-                //for loop for row
-                for (int j = 0; j < FrameBufferGrid.GetGridWidth(); j++)
+                //clear screen
+
+                //for loop for col
+                for (int i = 0; i < FrameBufferGrid.GetGridHeight(); i++)
                 {
-                    //put all cells in the row in 1 string
-                    renderline += FrameBufferGrid.GetGameWindow()[j, i];
+                    //reset the line string
+                    string renderline = "";
+                    //for loop for row
+                    for (int j = 0; j < FrameBufferGrid.GetGridWidth(); j++)
+                    {
+                        //put all cells in the row in 1 string
+                        renderline += FrameBufferGrid.GetGameWindow()[j, i];
+                    }
+                    //print the entire row
+                    AnsiConsole.MarkupLine(renderline);
                 }
-                //print the entire row
-                AnsiConsole.MarkupLine(renderline);
             }
         }
     }
